@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Calculator - Cosmic Computing</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="stars"></div>
+    <div class="twinkling"></div>
+    
+    <!-- Intro Page -->
+    <div class="intro-page" id="intro-page">
+        <div class="intro-content">
+            <div class="intro-header">
+                <h1 class="intro-title">🌌 Space Calculator</h1>
+                <p class="intro-subtitle">Your cosmic computing companion</p>
+            </div>
+            
+            <div class="intro-description">
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🔢</div>
+                        <h3>Basic Calculator</h3>
+                        <p>Essential arithmetic operations with a cosmic touch</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🧮</div>
+                        <h3>Scientific Mode</h3>
+                        <p>Advanced functions, constants, and memory operations</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🌍</div>
+                        <h3>Unit Converter</h3>
+                        <p>Convert between 9 scientific categories of units</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🛰️</div>
+                        <h3>Orbital Mechanics</h3>
+                        <p>Calculate orbital velocities and periods</p>
+                    </div>
+                </div>
+                
+                <div class="intro-highlights">
+                    <div class="highlight-item">
+                        <span class="highlight-icon">⚡</span>
+                        <span>Real-time calculations</span>
+                    </div>
+                    <div class="highlight-item">
+                        <span class="highlight-icon">🎯</span>
+                        <span>Scientific precision</span>
+                    </div>
+                    <div class="highlight-item">
+                        <span class="highlight-icon">🌌</span>
+                        <span>Space-themed interface</span>
+                    </div>
+                    <div class="highlight-item">
+                        <span class="highlight-icon">📱</span>
+                        <span>Responsive design</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="intro-actions">
+                <button class="intro-btn" id="start-calculator">
+                    <span class="btn-text">🚀 Tap to Calculate</span>
+                    <span class="btn-arrow">→</span>
+                </button>
+                <p class="intro-note">Experience the power of cosmic computing</p>
+            </div>
+        </div>
+        
+        <div class="intro-background">
+            <div class="intro-stars"></div>
+            <div class="intro-planets"></div>
+        </div>
+    </div>
+
+    <!-- Main Calculator Interface -->
+    <div class="main-interface" id="main-interface" style="display: none;">
+        <div class="container">
+        <header class="header">
+            <h1 class="title">
+                <span class="cosmic-text">Space Calculator</span>
+                <div class="subtitle">Cosmic Computing for Space Enthusiasts</div>
+            </h1>
+        </header>
+
+        <div class="calculator-container">
+            <div class="mode-selector">
+                <button class="mode-btn active" data-mode="basic">Basic</button>
+                <button class="mode-btn" data-mode="scientific">Scientific</button>
+                <button class="mode-btn" data-mode="conversions">Conversions</button>
+                <button class="mode-btn" data-mode="orbital">Orbital</button>
+            </div>
+
+            <!-- Basic Calculator -->
+            <div class="calculator basic-calc active">
+                <div class="display">
+                    <div class="previous-operand" id="previous-operand"></div>
+                    <div class="current-operand" id="current-operand">0</div>
+                </div>
+                <div class="buttons">
+                    <button class="btn btn-clear" data-action="clear">C</button>
+                    <button class="btn btn-delete" data-action="delete">⌫</button>
+                    <button class="btn btn-operator" data-operator="÷">÷</button>
+                    <button class="btn btn-operator" data-operator="×">×</button>
+                    
+                    <button class="btn btn-number" data-number="7">7</button>
+                    <button class="btn btn-number" data-number="8">8</button>
+                    <button class="btn btn-number" data-number="9">9</button>
+                    <button class="btn btn-operator" data-operator="-">-</button>
+                    
+                    <button class="btn btn-number" data-number="4">4</button>
+                    <button class="btn btn-number" data-number="5">5</button>
+                    <button class="btn btn-number" data-number="6">6</button>
+                    <button class="btn btn-operator" data-operator="+">+</button>
+                    
+                    <button class="btn btn-number" data-number="1">1</button>
+                    <button class="btn btn-number" data-number="2">2</button>
+                    <button class="btn btn-number" data-number="3">3</button>
+                    <button class="btn btn-equals" data-action="equals" rowspan="2">=</button>
+                    
+                    <button class="btn btn-number btn-zero" data-number="0">0</button>
+                    <button class="btn btn-number" data-number=".">.</button>
+                </div>
+            </div>
+
+            <!-- Scientific Calculator -->
+            <div class="calculator scientific-calc">
+                <div class="display">
+                    <div class="previous-operand" id="sci-previous-operand"></div>
+                    <div class="current-operand" id="sci-current-operand">0</div>
+                </div>
+                <div class="scientific-buttons">
+                    <!-- Row 1: Memory and Constants -->
+                    <button class="btn btn-memory" data-action="mc">MC</button>
+                    <button class="btn btn-memory" data-action="mr">MR</button>
+                    <button class="btn btn-memory" data-action="m+">M+</button>
+                    <button class="btn btn-memory" data-action="m-">M-</button>
+                    <button class="btn btn-clear" data-action="clear">C</button>
+                    <button class="btn btn-delete" data-action="delete">⌫</button>
+                    
+                    <!-- Row 2: Functions -->
+                    <button class="btn btn-function" data-function="sin">sin</button>
+                    <button class="btn btn-function" data-function="cos">cos</button>
+                    <button class="btn btn-function" data-function="tan">tan</button>
+                    <button class="btn btn-function" data-function="log">log</button>
+                    <button class="btn btn-function" data-function="ln">ln</button>
+                    <button class="btn btn-function" data-function="sqrt">√</button>
+                    
+                    <!-- Row 3: Advanced Functions -->
+                    <button class="btn btn-function" data-function="asin">sin⁻¹</button>
+                    <button class="btn btn-function" data-function="acos">cos⁻¹</button>
+                    <button class="btn btn-function" data-function="atan">tan⁻¹</button>
+                    <button class="btn btn-function" data-function="pow">x^y</button>
+                    <button class="btn btn-function" data-function="factorial">x!</button>
+                    <button class="btn btn-function" data-function="exp">e^x</button>
+                    
+                    <!-- Row 4: Constants and More -->
+                    <button class="btn btn-constant" data-constant="pi">π</button>
+                    <button class="btn btn-constant" data-constant="e">e</button>
+                    <button class="btn btn-function" data-function="abs">|x|</button>
+                    <button class="btn btn-function" data-function="floor">⌊x⌋</button>
+                    <button class="btn btn-function" data-function="ceil">⌈x⌉</button>
+                    <button class="btn btn-function" data-function="round">round</button>
+                    
+                    <!-- Row 5: Numbers and Basic Operations -->
+                    <button class="btn btn-number" data-number="7">7</button>
+                    <button class="btn btn-number" data-number="8">8</button>
+                    <button class="btn btn-number" data-number="9">9</button>
+                    <button class="btn btn-operator" data-operator="÷">÷</button>
+                    <button class="btn btn-function" data-function="inv">1/x</button>
+                    <button class="btn btn-function" data-function="neg">±</button>
+                    
+                    <!-- Row 6 -->
+                    <button class="btn btn-number" data-number="4">4</button>
+                    <button class="btn btn-number" data-number="5">5</button>
+                    <button class="btn btn-number" data-number="6">6</button>
+                    <button class="btn btn-operator" data-operator="×">×</button>
+                    <button class="btn btn-function" data-function="pow10">10^x</button>
+                    <button class="btn btn-function" data-function="pow2">2^x</button>
+                    
+                    <!-- Row 7 -->
+                    <button class="btn btn-number" data-number="1">1</button>
+                    <button class="btn btn-number" data-number="2">2</button>
+                    <button class="btn btn-number" data-number="3">3</button>
+                    <button class="btn btn-operator" data-operator="-">-</button>
+                    <button class="btn btn-function" data-function="mod">mod</button>
+                    <button class="btn btn-function" data-function="rand">rand</button>
+                    
+                    <!-- Row 8 -->
+                    <button class="btn btn-number btn-zero" data-number="0">0</button>
+                    <button class="btn btn-number" data-number=".">.</button>
+                    <button class="btn btn-function" data-function="deg">deg</button>
+                    <button class="btn btn-operator" data-operator="+">+</button>
+                    <button class="btn btn-equals" data-action="equals">=</button>
+                    <button class="btn btn-function" data-function="rad">rad</button>
+                </div>
+            </div>
+
+            <!-- Unit Conversions -->
+            <div class="calculator conversions-calc">
+                <div class="conversion-header">
+                    <h3>🌌 Universal Unit Converter</h3>
+                    <p class="conversion-subtitle">Convert between any units across 9 scientific categories</p>
+                </div>
+                
+                <div class="conversion-controls">
+                    <div class="conversion-category-selector">
+                        <label for="conversion-category">📊 Category:</label>
+                        <select id="conversion-category" title="Select conversion category">
+                            <option value="basic">🔢 Basic Quantities</option>
+                            <option value="motion">⚡ Motion & Mechanics</option>
+                            <option value="electricity">⚡ Electricity & Magnetism</option>
+                            <option value="waves">🌊 Waves, Light & Sound</option>
+                            <option value="chemistry">🧪 Chemistry & Material Science</option>
+                            <option value="astronomy">🌌 Astronomy & Space</option>
+                            <option value="biology">🩺 Biology & Medicine</option>
+                            <option value="computing">💻 Information & Computing</option>
+                            <option value="everyday">🏠 Everyday & Practical</option>
+                        </select>
+                    </div>
+                    
+                    <div class="quick-convert-buttons">
+                        <button class="quick-btn" data-action="swap-units">🔄 Swap</button>
+                        <button class="quick-btn" data-action="clear-conversion">🗑️ Clear</button>
+                        <button class="quick-btn" data-action="copy-result">📋 Copy</button>
+                    </div>
+                </div>
+                
+                <div class="conversion-main">
+                    <div class="conversion-input-section">
+                        <div class="input-group-enhanced">
+                            <label for="conversion-value">Enter Value:</label>
+                            <input type="number" id="conversion-value" placeholder="0" step="any">
+                        </div>
+                        <div class="unit-selector-group">
+                            <label for="from-unit">From:</label>
+                            <select id="from-unit" title="Select unit to convert from">
+                                <!-- Options will be populated dynamically -->
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="conversion-arrow">➡️</div>
+                    
+                    <div class="conversion-output-section">
+                        <div class="conversion-results-header">
+                            <h4>📈 Conversion Results</h4>
+                            <div class="result-count" id="result-count">0 results</div>
+                        </div>
+                        <div class="result-display-enhanced" id="conversion-results">
+                            <div class="placeholder-message">
+                                <div class="placeholder-icon">🌌</div>
+                                <p>Select a category and unit, then enter a value to see conversions</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="conversion-features">
+                    <div class="feature-item">
+                        <span class="feature-icon">⚡</span>
+                        <span>Real-time conversion</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">🎯</span>
+                        <span>Scientific precision</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">🌍</span>
+                        <span>Universal units</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Orbital Calculations -->
+            <div class="calculator orbital-calc">
+                <div class="orbital-header">
+                    <h3>Orbital Mechanics Calculator</h3>
+                </div>
+                <div class="orbital-container">
+                    <div class="orbital-inputs">
+                        <div class="input-group">
+                            <label for="orbital-radius">Orbital Radius (km)</label>
+                            <input type="number" id="orbital-radius" placeholder="e.g., 384400 (Moon)" step="any">
+                        </div>
+                        <div class="input-group">
+                            <label for="central-mass">Central Mass (kg)</label>
+                            <input type="number" id="central-mass" placeholder="e.g., 5.97e24 (Earth)" step="any">
+                        </div>
+                        <div class="input-group">
+                            <label for="orbital-mass">Orbiting Mass (kg)</label>
+                            <input type="number" id="orbital-mass" placeholder="e.g., 7.35e22 (Moon)" step="any">
+                        </div>
+                        <button class="btn btn-calculate" id="calculate-orbital">Calculate</button>
+                    </div>
+                    <div class="orbital-results" id="orbital-results"></div>
+                </div>
+            </div>
+        </div>
+
+            <footer class="footer">
+                <p>Made with <span class="heart">♥</span> for space enthusiasts</p>
+            </footer>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
